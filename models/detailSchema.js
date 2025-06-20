@@ -19,7 +19,7 @@ const detailSchema = new mongoose.Schema({
         minLength : [10 , "Number must contain 10 numbers"],
         maxLength : [10 , "Number must contain 10 numbers"]
     },
-    discription : {
+    description : {
         type : String,
         requried : true ,
         minLength : [10 , "Number must contain 10 numbers"],

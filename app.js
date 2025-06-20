@@ -5,6 +5,7 @@ import { dbConnection } from "./database/dbConnection.js"
 import { errorMiddleware } from "./error/error.js";
 import {} from "./error/error.js"
 import detailRouter from './routes/detailRoute.js'
+import authRouter from './routes/authRoute.js';
 
 
 const app = express();
@@ -19,10 +20,11 @@ app.use(cors({
 app.use(express.json())
 app.use(express.urlencoded({extended:true}));
 app.use('/api/v1/detail' , detailRouter);
+app.use('/api', authRouter);
 
 app.post('/api/v1/detail/send', (req, res) => {
   const { name, email, phone } = req.body;
-  res.json({ success: true, message: 'Received!', data: { name, email, phone , discription } });
+  res.json({ success: true, message: 'Received!', data: { name, email, phone , description} });
 });
 
 dbConnection();
